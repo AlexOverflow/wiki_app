@@ -19,6 +19,7 @@ export const getStore = function() {
     );
 };
 
+
 const getReducers = function() {
     const reducers = requireAll(require.context('./reducers', true, /^\.\/.*\.js$/));
 

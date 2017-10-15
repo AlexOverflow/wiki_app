@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as _ from 'lodash';
 
 import {ConnectedSearchForm} from '../../components/SearchForm/SearchForm';
+import {ConnectedPageCheckLinks as PageCheckLinks} from '../../containers/LinkContainers/PageCheckLinks/PageCheckLinks';
 import {searchWiki} from '../../actions/wikiSearch';
 
 export class CustomWikiSearch extends React.Component {
@@ -23,7 +24,9 @@ export class CustomWikiSearch extends React.Component {
     }
 
     render() {
-        const items = [];
+
+      console.log("render CUSTOM WIKI");
+      /*  const items = [];
 
         items.push(<ConnectedSearchForm form="wikiSearch" onSubmit={this.handleSearchSubmit}/>);
 
@@ -35,9 +38,14 @@ export class CustomWikiSearch extends React.Component {
                     href={pageDescription.fullurl}>{pageDescription.title}
                 </a>);
             items.push(<div key="searchResults">{pageLinks}</div>);
-        }
+        }*/
 
-        return <div>{items}</div>;
+        return (
+        <div>
+        <ConnectedSearchForm form="wikiSearch" onSubmit={this.handleSearchSubmit} />
+        <PageCheckLinks />
+        </div>
+      )
     }
 
     handleSearchSubmit(values) {
